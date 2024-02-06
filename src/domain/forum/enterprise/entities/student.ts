@@ -8,6 +8,14 @@ type StudentProps = {
 }
 
 export class Student extends Entity<StudentProps> {
+  get email() {
+    return this.props.email
+  }
+
+  get password() {
+    return this.props.password
+  }
+
   static create(props: StudentProps, id?: UniqueEntityID) {
     const student = new Student(props, id)
 
