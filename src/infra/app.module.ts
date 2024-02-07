@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config'
 
 import { envSchema } from '~/infra/env/env'
 import { EnvModule } from '~/infra/env/env.module'
+import { HttpModule } from '~/infra/http/http.module'
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { EnvModule } from '~/infra/env/env.module'
       isGlobal: true,
     }),
     EnvModule,
+    HttpModule,
   ],
 })
 export class AppModule {}
