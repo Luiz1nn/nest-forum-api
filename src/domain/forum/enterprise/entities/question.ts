@@ -7,10 +7,30 @@ type QuestionProps = {
   title: string
   content: string
   createdAt: Date
-  updateAt?: Date | null
+  updatedAt?: Date | null
 }
 
 export class Question extends AggregateRoot<QuestionProps> {
+  get authorId() {
+    return this.props.authorId
+  }
+
+  get title() {
+    return this.props.title
+  }
+
+  get content() {
+    return this.props.content
+  }
+
+  get createdAt() {
+    return this.props.createdAt
+  }
+
+  get updatedAt() {
+    return this.props.updatedAt
+  }
+
   static create(
     props: Optional<QuestionProps, 'createdAt'>,
     id?: UniqueEntityID,
