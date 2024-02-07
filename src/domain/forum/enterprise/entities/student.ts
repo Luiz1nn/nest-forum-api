@@ -8,6 +8,10 @@ type StudentProps = {
 }
 
 export class Student extends Entity<StudentProps> {
+  get name() {
+    return this.props.email
+  }
+
   get email() {
     return this.props.email
   }
