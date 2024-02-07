@@ -9,7 +9,7 @@ type StudentProps = {
 
 export class Student extends Entity<StudentProps> {
   get name() {
-    return this.props.email
+    return this.props.name
   }
 
   get email() {
