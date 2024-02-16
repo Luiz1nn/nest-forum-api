@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 
+import { PaginationParams } from '~/core/repositories/pagination-params'
 import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
 import { Question } from '~/domain/forum/enterprise/entities/question'
 
@@ -9,6 +10,18 @@ import { PrismaService } from '../prisma.service'
 @Injectable()
 export class PrismaQuestionsRepository implements QuestionsRepository {
   constructor(private prisma: PrismaService) {}
+
+  async findManyRecent({ page }: PaginationParams): Promise<Question[]> {
+    const questions = await this.prisma.question.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      take: 20,
+      skip: (page - 1) * 20,
+    })
+
+    return questions.map(PrismaQuestionMapper.toDomain)
+  }
 
   async create(question: Question): Promise<void> {
     const data = PrismaQuestionMapper.toPrisma(question)
