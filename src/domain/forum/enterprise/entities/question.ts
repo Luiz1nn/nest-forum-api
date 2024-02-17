@@ -19,8 +19,19 @@ export class Question extends AggregateRoot<QuestionProps> {
     return this.props.title
   }
 
+  set title(title: string) {
+    this.props.title = title
+
+    this.touch()
+  }
+
   get content() {
     return this.props.content
+  }
+
+  set content(content: string) {
+    this.props.content = content
+    this.touch()
   }
 
   get createdAt() {
@@ -29,6 +40,10 @@ export class Question extends AggregateRoot<QuestionProps> {
 
   get updatedAt() {
     return this.props.updatedAt
+  }
+
+  private touch() {
+    this.props.updatedAt = new Date()
   }
 
   static create(
