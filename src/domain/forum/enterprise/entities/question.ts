@@ -4,6 +4,7 @@ import { Optional } from '~/core/types/optional'
 
 export type QuestionProps = {
   authorId: UniqueEntityID
+  bestAnswerId?: UniqueEntityID | null
   title: string
   content: string
   createdAt: Date
@@ -13,6 +14,18 @@ export type QuestionProps = {
 export class Question extends AggregateRoot<QuestionProps> {
   get authorId() {
     return this.props.authorId
+  }
+
+  get bestAnswerId() {
+    return this.props.bestAnswerId
+  }
+
+  set bestAnswerId(bestAnswerId: UniqueEntityID | undefined | null) {
+    if (bestAnswerId === undefined || bestAnswerId === null) return
+
+    this.props.bestAnswerId = bestAnswerId
+
+    this.touch()
   }
 
   get title() {
