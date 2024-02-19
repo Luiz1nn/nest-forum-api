@@ -61,3 +61,14 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {}
+
+###
+
+# @name answer_question
+POST {{baseUrl}}/questions/2644776a-bbae-4a83-96a5-9cf5083180b3/answers
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "content": "Resposta Teste"
+}
