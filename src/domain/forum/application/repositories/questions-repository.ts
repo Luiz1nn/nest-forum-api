@@ -6,4 +6,5 @@ export abstract class QuestionsRepository {
   abstract findManyRecent(params: PaginationParams): Promise<Question[]>
   abstract create(question: Question): Promise<void>
   abstract save(question: Question): Promise<void>
+  abstract delete(question: Question): Promise<void>
 }
