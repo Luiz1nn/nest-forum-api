@@ -49,4 +49,6 @@ model Answer {
 
   author   User     @relation(fields: [authorId], references: [id])
   question Question @relation(fields: [questionId], references: [id])
+
+  @@map("answers")
 }
