@@ -72,3 +72,12 @@ Authorization: Bearer {{authToken}}
 {
   "content": "Resposta Teste"
 }
+
+###
+
+# @name choose_question_best_answer
+PATCH  {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0/choose-as-best
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{}

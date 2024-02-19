@@ -10,6 +10,9 @@ export class PrismaQuestionMapper {
         title: raw.title,
         content: raw.content,
         authorId: new UniqueEntityID(raw.authorId),
+        bestAnswerId: raw.bestAnswerId
+          ? new UniqueEntityID(raw.bestAnswerId)
+          : null,
         createdAt: raw.createdAt,
         updatedAt: raw.updatedAt,
       },
@@ -21,6 +24,7 @@ export class PrismaQuestionMapper {
     return {
       id: question.id.toString(),
       authorId: question.authorId.toString(),
+      bestAnswerId: question.bestAnswerId?.toString(),
       title: question.title,
       content: question.content,
       createdAt: question.createdAt,

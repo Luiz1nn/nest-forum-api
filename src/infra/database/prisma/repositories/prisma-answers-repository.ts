@@ -10,6 +10,18 @@ import { PrismaService } from '../prisma.service'
 export class PrismaAnswersRepository implements AnswerRepository {
   constructor(private prisma: PrismaService) {}
 
+  async findById(id: string): Promise<Answer | null> {
+    const answer = await this.prisma.answer.findUnique({
+      where: {
+        id,
+      },
+    })
+
+    if (!answer) return null
+
+    return PrismaAnswerMapper.toDomain(answer)
+  }
+
   async create(answer: Answer): Promise<void> {
     const data = PrismaAnswerMapper.toPrisma(answer)
 
