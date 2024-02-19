@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'
 
 import { AuthenticateStudentUseCase } from '~/domain/forum/application/use-cases/authenticate-student'
 import { CreateQuestionUseCase } from '~/domain/forum/application/use-cases/create-question'
+import { DeleteQuestionUseCase } from '~/domain/forum/application/use-cases/delete-question'
 import { EditQuestionUseCase } from '~/domain/forum/application/use-cases/edit-question'
 import { FetchRecentQuestionsUseCase } from '~/domain/forum/application/use-cases/fetch-recent-questions'
 import { RegisterStudentUseCase } from '~/domain/forum/application/use-cases/register-student'
@@ -10,6 +11,7 @@ import { DatabaseModule } from '~/infra/database/database.module'
 import { AuthenticateController } from '~/infra/http/controllers/authenticate.controller'
 import { CreateAccountController } from '~/infra/http/controllers/create-account.controller'
 import { CreateQuestionController } from '~/infra/http/controllers/create-question.controller'
+import { DeleteQuestionController } from '~/infra/http/controllers/delete-question.controller'
 import { EditQuestionController } from '~/infra/http/controllers/edit-question.controller'
 import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-recent-questions.controller'
 
@@ -21,6 +23,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     CreateQuestionController,
     FetchRecentQuestionsController,
     EditQuestionController,
+    DeleteQuestionController,
   ],
   providers: [
     RegisterStudentUseCase,
@@ -28,6 +31,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     CreateQuestionUseCase,
     FetchRecentQuestionsUseCase,
     EditQuestionUseCase,
+    DeleteQuestionUseCase,
   ],
 })
 export class HttpModule {}

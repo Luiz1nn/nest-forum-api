@@ -52,3 +52,12 @@ Authorization: Bearer {{authToken}}
   "title": "Pergunta editada",
   "content": "Teste editada"
 }
+
+###
+
+# @name delete_question
+DELETE  {{baseUrl}}/questions/f199abf2-ef98-4d85-8f1a-3a2af51c8336
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{}
