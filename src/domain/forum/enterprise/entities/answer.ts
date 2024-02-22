@@ -23,6 +23,10 @@ export class Answer extends AggregateRoot<AnswerProps> {
     return this.props.content
   }
 
+  set content(content: string) {
+    this.props.content = content
+  }
+
   get createdAt() {
     return this.props.createdAt
   }
