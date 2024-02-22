@@ -92,3 +92,12 @@ Authorization: Bearer {{authToken}}
 {
   "content": "Resposta Editada"
 }
+
+###
+
+# @name delete_answer
+DELETE  {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{}

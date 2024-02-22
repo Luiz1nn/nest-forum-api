@@ -4,6 +4,7 @@ import { AnswerQuestionUseCase } from '~/domain/forum/application/use-cases/answ
 import { AuthenticateStudentUseCase } from '~/domain/forum/application/use-cases/authenticate-student'
 import { ChooseQuestionsBestAnswerUseCase } from '~/domain/forum/application/use-cases/choose-question-best-answer'
 import { CreateQuestionUseCase } from '~/domain/forum/application/use-cases/create-question'
+import { DeleteAnswerUseCase } from '~/domain/forum/application/use-cases/delete-answer'
 import { DeleteQuestionUseCase } from '~/domain/forum/application/use-cases/delete-question'
 import { EditAnswerUseCase } from '~/domain/forum/application/use-cases/edit-answer'
 import { EditQuestionUseCase } from '~/domain/forum/application/use-cases/edit-question'
@@ -21,6 +22,8 @@ import { EditAnswerController } from '~/infra/http/controllers/edit-answer.contr
 import { EditQuestionController } from '~/infra/http/controllers/edit-question.controller'
 import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-recent-questions.controller'
 
+import { DeleteAnswerController } from './controllers/delete-answer.controller'
+
 @Module({
   imports: [DatabaseModule, CryptographyModule],
   controllers: [
@@ -33,6 +36,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     AnswerQuestionController,
     ChooseQuestionBestAnswerController,
     EditAnswerController,
+    DeleteAnswerController,
   ],
   providers: [
     RegisterStudentUseCase,
@@ -44,6 +48,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     AnswerQuestionUseCase,
     ChooseQuestionsBestAnswerUseCase,
     EditAnswerUseCase,
+    DeleteAnswerUseCase,
   ],
 })
 export class HttpModule {}
