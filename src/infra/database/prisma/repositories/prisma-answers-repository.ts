@@ -29,4 +29,17 @@ export class PrismaAnswersRepository implements AnswerRepository {
       data,
     })
   }
+
+  async save(answer: Answer): Promise<void> {
+    const data = PrismaAnswerMapper.toPrisma(answer)
+
+    await Promise.all([
+      this.prisma.answer.update({
+        where: {
+          id: answer.id.toString(),
+        },
+        data,
+      }),
+    ])
+  }
 }
