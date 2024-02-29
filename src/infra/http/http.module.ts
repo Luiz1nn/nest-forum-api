@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common'
 import { AnswerQuestionUseCase } from '~/domain/forum/application/use-cases/answer-question'
 import { AuthenticateStudentUseCase } from '~/domain/forum/application/use-cases/authenticate-student'
 import { ChooseQuestionsBestAnswerUseCase } from '~/domain/forum/application/use-cases/choose-question-best-answer'
+import { CommentOnQuestionUseCase } from '~/domain/forum/application/use-cases/comment-on-question'
 import { CreateQuestionUseCase } from '~/domain/forum/application/use-cases/create-question'
 import { DeleteAnswerUseCase } from '~/domain/forum/application/use-cases/delete-answer'
 import { DeleteQuestionUseCase } from '~/domain/forum/application/use-cases/delete-question'
@@ -15,14 +16,14 @@ import { DatabaseModule } from '~/infra/database/database.module'
 import { AnswerQuestionController } from '~/infra/http/controllers/answer-question.controller'
 import { AuthenticateController } from '~/infra/http/controllers/authenticate.controller'
 import { ChooseQuestionBestAnswerController } from '~/infra/http/controllers/choose-question-best-answer.controller'
+import { CommentOnQuestionController } from '~/infra/http/controllers/comment-on-question.controller'
 import { CreateAccountController } from '~/infra/http/controllers/create-account.controller'
 import { CreateQuestionController } from '~/infra/http/controllers/create-question.controller'
+import { DeleteAnswerController } from '~/infra/http/controllers/delete-answer.controller'
 import { DeleteQuestionController } from '~/infra/http/controllers/delete-question.controller'
 import { EditAnswerController } from '~/infra/http/controllers/edit-answer.controller'
 import { EditQuestionController } from '~/infra/http/controllers/edit-question.controller'
 import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-recent-questions.controller'
-
-import { DeleteAnswerController } from './controllers/delete-answer.controller'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -37,6 +38,7 @@ import { DeleteAnswerController } from './controllers/delete-answer.controller'
     ChooseQuestionBestAnswerController,
     EditAnswerController,
     DeleteAnswerController,
+    CommentOnQuestionController,
   ],
   providers: [
     RegisterStudentUseCase,
@@ -49,6 +51,7 @@ import { DeleteAnswerController } from './controllers/delete-answer.controller'
     ChooseQuestionsBestAnswerUseCase,
     EditAnswerUseCase,
     DeleteAnswerUseCase,
+    CommentOnQuestionUseCase,
   ],
 })
 export class HttpModule {}
