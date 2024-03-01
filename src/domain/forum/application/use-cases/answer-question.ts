@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 
 import { Either, right } from '~/core/either'
 import { UniqueEntityID } from '~/core/entities/unique-entity-id'
-import { AnswerRepository } from '~/domain/forum/application/repositories/answer-repository'
+import { AnswersRepository } from '~/domain/forum/application/repositories/answers-repository'
 import { Answer } from '~/domain/forum/enterprise/entities/answer'
 
 type AnswerQuestionUseCaseRequest = {
@@ -20,7 +20,7 @@ type AnswerQuestionUseCaseResponse = Either<
 
 @Injectable()
 export class AnswerQuestionUseCase {
-  constructor(private answerRepository: AnswerRepository) {}
+  constructor(private answerRepository: AnswersRepository) {}
 
   async execute({
     authorId,

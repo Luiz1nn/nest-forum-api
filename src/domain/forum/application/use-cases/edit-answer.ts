@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common'
 import { Either, left, right } from '~/core/either'
 import { NotAllowedError } from '~/core/errors/errors/not-allowed-error'
 import { ResourceNotFoundError } from '~/core/errors/errors/resource-not-found-error'
-import { AnswerRepository } from '~/domain/forum/application/repositories/answer-repository'
+import { AnswersRepository } from '~/domain/forum/application/repositories/answers-repository'
 import { Answer } from '~/domain/forum/enterprise/entities/answer'
 
 type EditAnswerUseCaseRequest = {
@@ -21,7 +21,7 @@ type EditAnswerUseCaseResponse = Either<
 
 @Injectable()
 export class EditAnswerUseCase {
-  constructor(private answerRepository: AnswerRepository) {}
+  constructor(private answerRepository: AnswersRepository) {}
 
   async execute({
     authorId,

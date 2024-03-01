@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common'
 import { Either, left, right } from '~/core/either'
 import { NotAllowedError } from '~/core/errors/errors/not-allowed-error'
 import { ResourceNotFoundError } from '~/core/errors/errors/resource-not-found-error'
-import { AnswerRepository } from '~/domain/forum/application/repositories/answer-repository'
+import { AnswersRepository } from '~/domain/forum/application/repositories/answers-repository'
 import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
 import { Question } from '~/domain/forum/enterprise/entities/question'
 
@@ -23,7 +23,7 @@ type ChooseQuestionsBestAnswerUseCaseResponse = Either<
 export class ChooseQuestionsBestAnswerUseCase {
   constructor(
     private questionsRepository: QuestionsRepository,
-    private answerRepository: AnswerRepository,
+    private answerRepository: AnswersRepository,
   ) {}
 
   async execute({
