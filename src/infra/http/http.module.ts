@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common'
 import { AnswerQuestionUseCase } from '~/domain/forum/application/use-cases/answer-question'
 import { AuthenticateStudentUseCase } from '~/domain/forum/application/use-cases/authenticate-student'
 import { ChooseQuestionsBestAnswerUseCase } from '~/domain/forum/application/use-cases/choose-question-best-answer'
+import { CommentOnAnswerUseCase } from '~/domain/forum/application/use-cases/comment-on-answer'
 import { CommentOnQuestionUseCase } from '~/domain/forum/application/use-cases/comment-on-question'
 import { CreateQuestionUseCase } from '~/domain/forum/application/use-cases/create-question'
 import { DeleteAnswerUseCase } from '~/domain/forum/application/use-cases/delete-answer'
@@ -18,6 +19,7 @@ import { DatabaseModule } from '~/infra/database/database.module'
 import { AnswerQuestionController } from '~/infra/http/controllers/answer-question.controller'
 import { AuthenticateController } from '~/infra/http/controllers/authenticate.controller'
 import { ChooseQuestionBestAnswerController } from '~/infra/http/controllers/choose-question-best-answer.controller'
+import { CommentOnAnswerController } from '~/infra/http/controllers/comment-on-answer.controller'
 import { CommentOnQuestionController } from '~/infra/http/controllers/comment-on-question.controller'
 import { CreateAccountController } from '~/infra/http/controllers/create-account.controller'
 import { CreateQuestionController } from '~/infra/http/controllers/create-question.controller'
@@ -45,6 +47,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     CommentOnQuestionController,
     FetchQuestionCommentsController,
     DeleteQuestionCommentController,
+    CommentOnAnswerController,
   ],
   providers: [
     RegisterStudentUseCase,
@@ -60,6 +63,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     CommentOnQuestionUseCase,
     FetchQuestionCommentsUseCase,
     DeleteQuestionCommentUseCase,
+    CommentOnAnswerUseCase,
   ],
 })
 export class HttpModule {}

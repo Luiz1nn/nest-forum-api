@@ -130,3 +130,14 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {}
+
+###
+
+# @name comment_on_answer
+POST  {{baseUrl}}/answers/fc6712bc-6261-4c78-88fe-2ceb7d70e818/comments
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "content": "comentario teste"
+}
