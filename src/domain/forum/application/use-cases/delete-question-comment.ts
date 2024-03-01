@@ -5,32 +5,33 @@ import { NotAllowedError } from '~/core/errors/errors/not-allowed-error'
 import { ResourceNotFoundError } from '~/core/errors/errors/resource-not-found-error'
 import { QuestionCommentsRepository } from '~/domain/forum/application/repositories/question-comments-repository'
 
-type DeleteQuestionUseCaseRequest = {
+type DeleteQuestionCommentUseCaseRequest = {
   authorId: string
-  questionId: string
+  questionCommentId: string
 }
 
-type DeleteQuestionUseCaseResponse = Either<
+type DeleteQuestionCommentUseCaseResponse = Either<
   ResourceNotFoundError | NotAllowedError,
   null
 >
 
 @Injectable()
-export class DeleteQuestionUseCase {
+export class DeleteQuestionCommentUseCase {
   constructor(private questionCommentsRepository: QuestionCommentsRepository) {}
 
   async execute({
     authorId,
-    questionId,
-  }: DeleteQuestionUseCaseRequest): Promise<DeleteQuestionUseCaseResponse> {
-    const question = await this.questionCommentsRepository.findById(questionId)
+    questionCommentId,
+  }: DeleteQuestionCommentUseCaseRequest): Promise<DeleteQuestionCommentUseCaseResponse> {
+    const questionComment =
+      await this.questionCommentsRepository.findById(questionCommentId)
 
-    if (!question) return left(new ResourceNotFoundError())
+    if (!questionComment) return left(new ResourceNotFoundError())
 
-    if (authorId !== question.authorId.toString())
+    if (questionComment.authorId.toString() !== authorId)
       return left(new NotAllowedError())
 
-    await this.questionCommentsRepository.delete(question)
+    await this.questionCommentsRepository.delete(questionComment)
 
     return right(null)
   }
