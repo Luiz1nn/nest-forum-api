@@ -7,6 +7,7 @@ import { CommentOnQuestionUseCase } from '~/domain/forum/application/use-cases/c
 import { CreateQuestionUseCase } from '~/domain/forum/application/use-cases/create-question'
 import { DeleteAnswerUseCase } from '~/domain/forum/application/use-cases/delete-answer'
 import { DeleteQuestionUseCase } from '~/domain/forum/application/use-cases/delete-question'
+import { DeleteQuestionCommentUseCase } from '~/domain/forum/application/use-cases/delete-question-comment'
 import { EditAnswerUseCase } from '~/domain/forum/application/use-cases/edit-answer'
 import { EditQuestionUseCase } from '~/domain/forum/application/use-cases/edit-question'
 import { FetchQuestionCommentsUseCase } from '~/domain/forum/application/use-cases/fetch-question-comments'
@@ -22,6 +23,7 @@ import { CreateAccountController } from '~/infra/http/controllers/create-account
 import { CreateQuestionController } from '~/infra/http/controllers/create-question.controller'
 import { DeleteAnswerController } from '~/infra/http/controllers/delete-answer.controller'
 import { DeleteQuestionController } from '~/infra/http/controllers/delete-question.controller'
+import { DeleteQuestionCommentController } from '~/infra/http/controllers/delete-question-comment.controller'
 import { EditAnswerController } from '~/infra/http/controllers/edit-answer.controller'
 import { EditQuestionController } from '~/infra/http/controllers/edit-question.controller'
 import { FetchQuestionCommentsController } from '~/infra/http/controllers/fetch-question-comments.controller'
@@ -42,6 +44,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     DeleteAnswerController,
     CommentOnQuestionController,
     FetchQuestionCommentsController,
+    DeleteQuestionCommentController,
   ],
   providers: [
     RegisterStudentUseCase,
@@ -56,6 +59,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     DeleteAnswerUseCase,
     CommentOnQuestionUseCase,
     FetchQuestionCommentsUseCase,
+    DeleteQuestionCommentUseCase,
   ],
 })
 export class HttpModule {}

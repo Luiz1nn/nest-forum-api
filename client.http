@@ -121,3 +121,12 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {}
+
+###
+
+# @name delete_question_comment
+DELETE  {{baseUrl}}/questions/comments/cc91a21e-d606-41c2-9ab4-16c73772a2c6
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{}
