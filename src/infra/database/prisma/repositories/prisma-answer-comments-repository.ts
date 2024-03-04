@@ -14,6 +14,17 @@ export class PrismaAnswerCommentsRepository
   implements AnswerCommentsRepository
 {
   constructor(private prisma: PrismaService) {}
+  async findById(id: string): Promise<AnswerComment | null> {
+    const answerComment = await this.prisma.comment.findUnique({
+      where: {
+        id,
+      },
+    })
+
+    if (!answerComment) return null
+
+    return PrismaAnswerCommentMapper.toDomain(answerComment)
+  }
 
   async findManyByAnswerIdWithAuthor(
     answerId: string,
@@ -41,6 +52,14 @@ export class PrismaAnswerCommentsRepository
 
     await this.prisma.comment.create({
       data,
+    })
+  }
+
+  async delete(answerComment: AnswerComment): Promise<void> {
+    await this.prisma.comment.delete({
+      where: {
+        id: answerComment.id.toString(),
+      },
     })
   }
 }

@@ -5,11 +5,11 @@ import { InMemoryStudentsRepository } from 'test/repositories/in-memory-students
 import { UniqueEntityID } from '~/core/entities/unique-entity-id'
 import { NotAllowedError } from '~/core/errors/errors/not-allowed-error'
 
-import { DeleteAnswerCommentsUseCase } from './delete-answer-comments'
+import { DeleteAnswerCommentUseCase } from './delete-answer-comment'
 
 let inMemoryStudentsRepository: InMemoryStudentsRepository
 let inMemoryAnswerCommentsRepository: InMemoryAnswerCommentsRepository
-let sut: DeleteAnswerCommentsUseCase
+let sut: DeleteAnswerCommentUseCase
 
 describe('Delete Answer Comment', () => {
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('Delete Answer Comment', () => {
     inMemoryAnswerCommentsRepository = new InMemoryAnswerCommentsRepository(
       inMemoryStudentsRepository,
     )
-    sut = new DeleteAnswerCommentsUseCase(inMemoryAnswerCommentsRepository)
+    sut = new DeleteAnswerCommentUseCase(inMemoryAnswerCommentsRepository)
   })
 
   it('should be able to delete a answer comment', async () => {

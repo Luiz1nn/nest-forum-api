@@ -152,3 +152,12 @@ Authorization: Bearer {{authToken}}
 {
   "content": "comentario teste"
 }
+
+###
+
+# @name delete_answer_comment
+DELETE {{baseUrl}}/answers/comments/b52688b3-3821-4fb3-aaa3-36c79aecc085
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{}

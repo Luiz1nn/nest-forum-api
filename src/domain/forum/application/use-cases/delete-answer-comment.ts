@@ -5,24 +5,24 @@ import { NotAllowedError } from '~/core/errors/errors/not-allowed-error'
 import { ResourceNotFoundError } from '~/core/errors/errors/resource-not-found-error'
 import { AnswerCommentsRepository } from '~/domain/forum/application/repositories/answer-comments-repository'
 
-type DeleteAnswerCommentsUseCaseRequest = {
+type DeleteAnswerCommentUseCaseRequest = {
   authorId: string
   answerCommentId: string
 }
 
-type DeleteAnswerCommentsUseCaseResponse = Either<
+type DeleteAnswerCommentUseCaseResponse = Either<
   ResourceNotFoundError | NotAllowedError,
   null
 >
 
 @Injectable()
-export class DeleteAnswerCommentsUseCase {
+export class DeleteAnswerCommentUseCase {
   constructor(private answerCommentsRepository: AnswerCommentsRepository) {}
 
   async execute({
     authorId,
     answerCommentId,
-  }: DeleteAnswerCommentsUseCaseRequest): Promise<DeleteAnswerCommentsUseCaseResponse> {
+  }: DeleteAnswerCommentUseCaseRequest): Promise<DeleteAnswerCommentUseCaseResponse> {
     const answerComment =
       await this.answerCommentsRepository.findById(answerCommentId)
 
