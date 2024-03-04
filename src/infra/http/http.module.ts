@@ -11,6 +11,7 @@ import { DeleteQuestionUseCase } from '~/domain/forum/application/use-cases/dele
 import { DeleteQuestionCommentUseCase } from '~/domain/forum/application/use-cases/delete-question-comment'
 import { EditAnswerUseCase } from '~/domain/forum/application/use-cases/edit-answer'
 import { EditQuestionUseCase } from '~/domain/forum/application/use-cases/edit-question'
+import { FetchAnswerCommentsUseCase } from '~/domain/forum/application/use-cases/fetch-answer-comments'
 import { FetchQuestionCommentsUseCase } from '~/domain/forum/application/use-cases/fetch-question-comments'
 import { FetchRecentQuestionsUseCase } from '~/domain/forum/application/use-cases/fetch-recent-questions'
 import { RegisterStudentUseCase } from '~/domain/forum/application/use-cases/register-student'
@@ -28,6 +29,7 @@ import { DeleteQuestionController } from '~/infra/http/controllers/delete-questi
 import { DeleteQuestionCommentController } from '~/infra/http/controllers/delete-question-comment.controller'
 import { EditAnswerController } from '~/infra/http/controllers/edit-answer.controller'
 import { EditQuestionController } from '~/infra/http/controllers/edit-question.controller'
+import { FetchAnswerCommentsController } from '~/infra/http/controllers/fetch-answer-comments.controller'
 import { FetchQuestionCommentsController } from '~/infra/http/controllers/fetch-question-comments.controller'
 import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-recent-questions.controller'
 
@@ -48,6 +50,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     FetchQuestionCommentsController,
     DeleteQuestionCommentController,
     CommentOnAnswerController,
+    FetchAnswerCommentsController,
   ],
   providers: [
     RegisterStudentUseCase,
@@ -64,6 +67,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     FetchQuestionCommentsUseCase,
     DeleteQuestionCommentUseCase,
     CommentOnAnswerUseCase,
+    FetchAnswerCommentsUseCase,
   ],
 })
 export class HttpModule {}

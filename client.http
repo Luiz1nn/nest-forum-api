@@ -56,7 +56,7 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name delete_question
-DELETE  {{baseUrl}}/questions/f199abf2-ef98-4d85-8f1a-3a2af51c8336
+DELETE {{baseUrl}}/questions/f199abf2-ef98-4d85-8f1a-3a2af51c8336
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -76,7 +76,7 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name choose_question_best_answer
-PATCH  {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0/choose-as-best
+PATCH {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0/choose-as-best
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -85,7 +85,7 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name edit_answer
-PUT  {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0
+PUT {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -96,7 +96,7 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name delete_answer
-DELETE  {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0
+DELETE {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -105,7 +105,7 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name comment_on_question
-POST  {{baseUrl}}/questions/2644776a-bbae-4a83-96a5-9cf5083180b3/comments
+POST {{baseUrl}}/questions/2644776a-bbae-4a83-96a5-9cf5083180b3/comments
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -116,7 +116,7 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name fetch_question_comments
-GET  {{baseUrl}}/questions/2644776a-bbae-4a83-96a5-9cf5083180b3/comments
+GET {{baseUrl}}/questions/2644776a-bbae-4a83-96a5-9cf5083180b3/comments
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -125,7 +125,7 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name delete_question_comment
-DELETE  {{baseUrl}}/questions/comments/cc91a21e-d606-41c2-9ab4-16c73772a2c6
+DELETE {{baseUrl}}/questions/comments/cc91a21e-d606-41c2-9ab4-16c73772a2c6
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -134,7 +134,18 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name comment_on_answer
-POST  {{baseUrl}}/answers/fc6712bc-6261-4c78-88fe-2ceb7d70e818/comments
+POST {{baseUrl}}/answers/fc6712bc-6261-4c78-88fe-2ceb7d70e818/comments
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "content": "comentario teste"
+}
+
+###
+
+# @name fetch_answer_comments
+GET {{baseUrl}}/answers/fc6712bc-6261-4c78-88fe-2ceb7d70e818/comments
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
