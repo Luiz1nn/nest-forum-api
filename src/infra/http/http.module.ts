@@ -15,6 +15,7 @@ import { EditQuestionUseCase } from '~/domain/forum/application/use-cases/edit-q
 import { FetchAnswerCommentsUseCase } from '~/domain/forum/application/use-cases/fetch-answer-comments'
 import { FetchQuestionCommentsUseCase } from '~/domain/forum/application/use-cases/fetch-question-comments'
 import { FetchRecentQuestionsUseCase } from '~/domain/forum/application/use-cases/fetch-recent-questions'
+import { GetQuestionBySlugUseCase } from '~/domain/forum/application/use-cases/get-question-by-slug'
 import { RegisterStudentUseCase } from '~/domain/forum/application/use-cases/register-student'
 import { CryptographyModule } from '~/infra/cryptography/cryptography.module'
 import { DatabaseModule } from '~/infra/database/database.module'
@@ -34,6 +35,7 @@ import { EditQuestionController } from '~/infra/http/controllers/edit-question.c
 import { FetchAnswerCommentsController } from '~/infra/http/controllers/fetch-answer-comments.controller'
 import { FetchQuestionCommentsController } from '~/infra/http/controllers/fetch-question-comments.controller'
 import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-recent-questions.controller'
+import { GetQuestionBySlugController } from '~/infra/http/controllers/get-question-by-slug.controller'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -54,6 +56,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     CommentOnAnswerController,
     FetchAnswerCommentsController,
     DeleteAnswerCommentController,
+    GetQuestionBySlugController,
   ],
   providers: [
     RegisterStudentUseCase,
@@ -72,6 +75,7 @@ import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-r
     CommentOnAnswerUseCase,
     FetchAnswerCommentsUseCase,
     DeleteAnswerCommentUseCase,
+    GetQuestionBySlugUseCase,
   ],
 })
 export class HttpModule {}

@@ -2,6 +2,7 @@ import { Prisma, Question as PrismaQuestion } from '@prisma/client'
 
 import { UniqueEntityID } from '~/core/entities/unique-entity-id'
 import { Question } from '~/domain/forum/enterprise/entities/question'
+import { Slug } from '~/domain/forum/enterprise/entities/value-objects/slug'
 
 export class PrismaQuestionMapper {
   static toDomain(raw: PrismaQuestion): Question {
@@ -13,6 +14,7 @@ export class PrismaQuestionMapper {
         bestAnswerId: raw.bestAnswerId
           ? new UniqueEntityID(raw.bestAnswerId)
           : null,
+        slug: Slug.create(raw.slug),
         createdAt: raw.createdAt,
         updatedAt: raw.updatedAt,
       },
@@ -26,6 +28,7 @@ export class PrismaQuestionMapper {
       authorId: question.authorId.toString(),
       bestAnswerId: question.bestAnswerId?.toString(),
       title: question.title,
+      slug: question.slug.value,
       content: question.content,
       createdAt: question.createdAt,
       updatedAt: question.updatedAt,

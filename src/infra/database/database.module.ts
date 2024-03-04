@@ -5,6 +5,7 @@ import { AnswersRepository } from '~/domain/forum/application/repositories/answe
 import { QuestionCommentsRepository } from '~/domain/forum/application/repositories/question-comments-repository'
 import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
 import { StudentsRepository } from '~/domain/forum/application/repositories/students-repository'
+import { CacheModule } from '~/infra/cache/cache.module'
 
 import { PrismaService } from './prisma/prisma.service'
 import { PrismaAnswerCommentsRepository } from './prisma/repositories/prisma-answer-comments-repository'
@@ -14,6 +15,7 @@ import { PrismaQuestionsRepository } from './prisma/repositories/prisma-question
 import { PrismaStudentsRepository } from './prisma/repositories/prisma-students-repository'
 
 @Module({
+  imports: [CacheModule],
   providers: [
     PrismaService,
     {

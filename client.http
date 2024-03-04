@@ -30,7 +30,7 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "title": "Pergunta teste",
+  "title": "Pergunta",
   "content": "Teste"
 }
 
@@ -38,6 +38,13 @@ Authorization: Bearer {{authToken}}
 
 # @name fetch_recent_question
 GET {{baseUrl}}/questions?page=1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name get_question_by_slug
+GET {{baseUrl}}/questions/pergunta
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -60,8 +67,6 @@ DELETE {{baseUrl}}/questions/f199abf2-ef98-4d85-8f1a-3a2af51c8336
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
-{}
-
 ###
 
 # @name answer_question
@@ -79,8 +84,6 @@ Authorization: Bearer {{authToken}}
 PATCH {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0/choose-as-best
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
-
-{}
 
 ###
 
@@ -100,8 +103,6 @@ DELETE {{baseUrl}}/answers/28384309-c71b-477c-af83-03c6bd65b9b0
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
-{}
-
 ###
 
 # @name comment_on_question
@@ -120,16 +121,12 @@ GET {{baseUrl}}/questions/2644776a-bbae-4a83-96a5-9cf5083180b3/comments
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
-{}
-
 ###
 
 # @name delete_question_comment
 DELETE {{baseUrl}}/questions/comments/cc91a21e-d606-41c2-9ab4-16c73772a2c6
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
-
-{}
 
 ###
 
@@ -159,5 +156,3 @@ Authorization: Bearer {{authToken}}
 DELETE {{baseUrl}}/answers/comments/b52688b3-3821-4fb3-aaa3-36c79aecc085
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
-
-{}
