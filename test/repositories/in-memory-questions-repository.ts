@@ -1,9 +1,14 @@
 import { PaginationParams } from '~/core/repositories/pagination-params'
 import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
 import { Question } from '~/domain/forum/enterprise/entities/question'
+import { QuestionDetails } from '~/domain/forum/enterprise/entities/value-objects/question-details'
+
+import { InMemoryStudentsRepository } from './in-memory-students-repository'
 
 export class InMemoryQuestionsRepository implements QuestionsRepository {
   public items: Question[] = []
+
+  constructor(private studentsRepository: InMemoryStudentsRepository) {}
 
   async findById(id: string): Promise<Question | null> {
     const question = this.items.find((item) => item.id.toString() === id)
@@ -11,6 +16,32 @@ export class InMemoryQuestionsRepository implements QuestionsRepository {
     if (!question) return null
 
     return question
+  }
+
+  async findDetailsBySlug(slug: string): Promise<QuestionDetails | null> {
+    const question = this.items.find((item) => item.slug.value === slug)
+
+    if (!question) return null
+
+    const author = this.studentsRepository.items.find((student) => {
+      return student.id.equals(question.authorId)
+    })
+
+    if (!author)
+      throw new Error(
+        `Author with ID "${question.authorId.toString()}" does not exist.`,
+      )
+
+    return QuestionDetails.create({
+      questionId: question.id,
+      authorId: question.authorId,
+      author: author.name,
+      title: question.title,
+      slug: question.slug,
+      content: question.content,
+      createdAt: question.createdAt,
+      updatedAt: question.updatedAt,
+    })
   }
 
   async findManyRecent({ page }: PaginationParams): Promise<Question[]> {
