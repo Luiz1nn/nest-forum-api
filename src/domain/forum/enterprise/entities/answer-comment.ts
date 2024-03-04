@@ -3,7 +3,7 @@ import { Optional } from '~/core/types/optional'
 
 import { Comment, CommentProps } from './comment'
 
-interface AnswerCommentProps extends CommentProps {
+export interface AnswerCommentProps extends CommentProps {
   answerId: UniqueEntityID
 }
 
