@@ -17,6 +17,7 @@ import { FetchQuestionCommentsUseCase } from '~/domain/forum/application/use-cas
 import { FetchRecentQuestionsUseCase } from '~/domain/forum/application/use-cases/fetch-recent-questions'
 import { GetQuestionBySlugUseCase } from '~/domain/forum/application/use-cases/get-question-by-slug'
 import { RegisterStudentUseCase } from '~/domain/forum/application/use-cases/register-student'
+import { UploadAndCreateAttachmentUseCase } from '~/domain/forum/application/use-cases/upload-and-create-attachment'
 import { CryptographyModule } from '~/infra/cryptography/cryptography.module'
 import { DatabaseModule } from '~/infra/database/database.module'
 import { AnswerQuestionController } from '~/infra/http/controllers/answer-question.controller'
@@ -36,9 +37,11 @@ import { FetchAnswerCommentsController } from '~/infra/http/controllers/fetch-an
 import { FetchQuestionCommentsController } from '~/infra/http/controllers/fetch-question-comments.controller'
 import { FetchRecentQuestionsController } from '~/infra/http/controllers/fetch-recent-questions.controller'
 import { GetQuestionBySlugController } from '~/infra/http/controllers/get-question-by-slug.controller'
+import { UploadAttachmentController } from '~/infra/http/controllers/upload-attachment.controller'
+import { StorageModule } from '~/infra/storage/storage.module'
 
 @Module({
-  imports: [DatabaseModule, CryptographyModule],
+  imports: [DatabaseModule, CryptographyModule, StorageModule],
   controllers: [
     CreateAccountController,
     AuthenticateController,
@@ -57,6 +60,7 @@ import { GetQuestionBySlugController } from '~/infra/http/controllers/get-questi
     FetchAnswerCommentsController,
     DeleteAnswerCommentController,
     GetQuestionBySlugController,
+    UploadAttachmentController,
   ],
   providers: [
     RegisterStudentUseCase,
@@ -76,6 +80,7 @@ import { GetQuestionBySlugController } from '~/infra/http/controllers/get-questi
     FetchAnswerCommentsUseCase,
     DeleteAnswerCommentUseCase,
     GetQuestionBySlugUseCase,
+    UploadAndCreateAttachmentUseCase,
   ],
 })
 export class HttpModule {}
