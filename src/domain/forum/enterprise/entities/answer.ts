@@ -3,7 +3,7 @@ import { UniqueEntityID } from '~/core/entities/unique-entity-id'
 import { Optional } from '~/core/types/optional'
 import { AnswerCreatedEvent } from '~/domain/forum/enterprise/events/answer-created-event'
 
-import { AnswerAttachmentList } from './answer-attachment-list'
+import { AnswerAttachmentList } from './attachments/answer-attachment-list'
 
 export type AnswerProps = {
   authorId: UniqueEntityID

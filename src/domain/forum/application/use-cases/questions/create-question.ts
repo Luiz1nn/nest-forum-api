@@ -3,9 +3,9 @@ import { Injectable } from '@nestjs/common'
 import { Either, right } from '~/core/either'
 import { UniqueEntityID } from '~/core/entities/unique-entity-id'
 import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
+import { QuestionAttachment } from '~/domain/forum/enterprise/entities/attachments/question-attachment'
+import { QuestionAttachmentList } from '~/domain/forum/enterprise/entities/attachments/question-attachment-list'
 import { Question } from '~/domain/forum/enterprise/entities/question'
-import { QuestionAttachment } from '~/domain/forum/enterprise/entities/question-attachment'
-import { QuestionAttachmentList } from '~/domain/forum/enterprise/entities/question-attachment-list'
 
 type CreateQuestionUseCaseRequest = {
   authorId: string

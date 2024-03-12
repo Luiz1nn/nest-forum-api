@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 
 import { PaginationParams } from '~/core/repositories/pagination-params'
 import { AnswerCommentsRepository } from '~/domain/forum/application/repositories/answer-comments-repository'
-import { AnswerComment } from '~/domain/forum/enterprise/entities/answer-comment'
+import { AnswerComment } from '~/domain/forum/enterprise/entities/comments/answer-comment'
 import { CommentWithAuthor } from '~/domain/forum/enterprise/entities/value-objects/comment-with-author'
 
 import { PrismaAnswerCommentMapper } from '../mappers/prisma-answer-comment-mapper'

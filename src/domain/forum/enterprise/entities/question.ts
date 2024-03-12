@@ -2,7 +2,7 @@ import { AggregateRoot } from '~/core/entities/aggregate-root'
 import { UniqueEntityID } from '~/core/entities/unique-entity-id'
 import { Optional } from '~/core/types/optional'
 
-import { QuestionAttachmentList } from './question-attachment-list'
+import { QuestionAttachmentList } from './attachments/question-attachment-list'
 import { Slug } from './value-objects/slug'
 
 export type QuestionProps = {

@@ -5,7 +5,7 @@ import { UniqueEntityID } from '~/core/entities/unique-entity-id'
 import { ResourceNotFoundError } from '~/core/errors/errors/resource-not-found-error'
 import { QuestionCommentsRepository } from '~/domain/forum/application/repositories/question-comments-repository'
 import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
-import { QuestionComment } from '~/domain/forum/enterprise/entities/question-comment'
+import { QuestionComment } from '~/domain/forum/enterprise/entities/comments/question-comment'
 
 type CommentOnQuestionUseCaseRequest = {
   authorId: string
