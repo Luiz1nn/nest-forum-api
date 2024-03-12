@@ -3,9 +3,8 @@ import { Injectable } from '@nestjs/common'
 import { Either, left, right } from '~/core/either'
 import { AttachmentsRepository } from '~/domain/forum/application/repositories/attachments-repository'
 import { Uploader } from '~/domain/forum/application/storage/uploader'
-import { Attachment } from '~/domain/forum/enterprise/entities/attachment'
-
-import { InvalidAttachmentTypeError } from '../errors/invalid-attachment-type-error'
+import { InvalidAttachmentTypeError } from '~/domain/forum/application/use-cases/errors'
+import { Attachment } from '~/domain/forum/enterprise/entities/attachments'
 
 type UploadAndCreateAttachmentRequest = {
   fileName: string

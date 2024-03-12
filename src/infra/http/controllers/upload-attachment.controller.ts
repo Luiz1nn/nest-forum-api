@@ -11,7 +11,7 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express'
 
 import { UploadAndCreateAttachmentUseCase } from '~/domain/forum/application/use-cases/attachments/upload-and-create-attachment'
-import { InvalidAttachmentTypeError } from '~/domain/forum/application/use-cases/errors/invalid-attachment-type-error'
+import { InvalidAttachmentTypeError } from '~/domain/forum/application/use-cases/errors'
 
 @Controller('/attachments')
 export class UploadAttachmentController {

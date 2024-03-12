@@ -2,10 +2,12 @@ import { Injectable } from '@nestjs/common'
 
 import { Either, right } from '~/core/either'
 import { UniqueEntityID } from '~/core/entities/unique-entity-id'
-import { AnswersRepository } from '~/domain/forum/application/repositories/answers-repository'
+import { AnswersRepository } from '~/domain/forum/application/repositories'
 import { Answer } from '~/domain/forum/enterprise/entities/answer'
-import { AnswerAttachment } from '~/domain/forum/enterprise/entities/attachments/answer-attachment'
-import { AnswerAttachmentList } from '~/domain/forum/enterprise/entities/attachments/answer-attachment-list'
+import {
+  AnswerAttachment,
+  AnswerAttachmentList,
+} from '~/domain/forum/enterprise/entities/attachments'
 
 type AnswerQuestionUseCaseRequest = {
   authorId: string

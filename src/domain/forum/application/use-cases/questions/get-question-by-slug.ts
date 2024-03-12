@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 
 import { Either, left, right } from '~/core/either'
-import { ResourceNotFoundError } from '~/core/errors/errors/resource-not-found-error'
-import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
+import { ResourceNotFoundError } from '~/core/errors'
+import { QuestionsRepository } from '~/domain/forum/application/repositories'
 import { QuestionDetails } from '~/domain/forum/enterprise/entities/value-objects/question-details'
 
 type GetQuestionBySlugUseCaseRequest = {

@@ -6,7 +6,7 @@ import {
   Param,
 } from '@nestjs/common'
 
-import { DeleteAnswerUseCase } from '~/domain/forum/application/use-cases/answers/delete-answer'
+import { DeleteAnswerUseCase } from '~/domain/forum/application/use-cases/answers'
 import { CurrentUser } from '~/infra/auth/current-user-decorator'
 import { UserPayload } from '~/infra/auth/jwt.strategy'
 

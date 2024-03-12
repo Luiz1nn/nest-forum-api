@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common'
 
-import { CommentOnAnswerUseCase } from '~/domain/forum/application/use-cases/comments/comment-on-answer'
-import { CommentOnQuestionUseCase } from '~/domain/forum/application/use-cases/comments/comment-on-question'
-import { DeleteAnswerCommentUseCase } from '~/domain/forum/application/use-cases/comments/delete-answer-comment'
-import { DeleteQuestionCommentUseCase } from '~/domain/forum/application/use-cases/comments/delete-question-comment'
-import { FetchAnswerCommentsUseCase } from '~/domain/forum/application/use-cases/comments/fetch-answer-comments'
-import { FetchQuestionCommentsUseCase } from '~/domain/forum/application/use-cases/comments/fetch-question-comments'
+import {
+  CommentOnAnswerUseCase,
+  CommentOnQuestionUseCase,
+  DeleteAnswerCommentUseCase,
+  DeleteQuestionCommentUseCase,
+  FetchAnswerCommentsUseCase,
+  FetchQuestionCommentsUseCase,
+} from '~/domain/forum/application/use-cases/comments'
 import { DatabaseModule } from '~/infra/database/database.module'
 
 import { CommentOnAnswerController } from './comment-on-answer.controller'

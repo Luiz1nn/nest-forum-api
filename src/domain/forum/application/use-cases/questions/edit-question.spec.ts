@@ -5,7 +5,7 @@ import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questio
 import { InMemoryStudentsRepository } from 'test/repositories/in-memory-students-repository'
 
 import { UniqueEntityID } from '~/core/entities/unique-entity-id'
-import { NotAllowedError } from '~/core/errors/errors/not-allowed-error'
+import { NotAllowedError } from '~/core/errors'
 
 import { EditQuestionUseCase } from './edit-question'
 

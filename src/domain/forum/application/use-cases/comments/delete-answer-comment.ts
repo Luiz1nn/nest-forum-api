@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common'
 
 import { Either, left, right } from '~/core/either'
-import { NotAllowedError } from '~/core/errors/errors/not-allowed-error'
-import { ResourceNotFoundError } from '~/core/errors/errors/resource-not-found-error'
-import { AnswerCommentsRepository } from '~/domain/forum/application/repositories/answer-comments-repository'
+import { NotAllowedError, ResourceNotFoundError } from '~/core/errors'
+import { AnswerCommentsRepository } from '~/domain/forum/application/repositories'
 
 type DeleteAnswerCommentUseCaseRequest = {
   authorId: string

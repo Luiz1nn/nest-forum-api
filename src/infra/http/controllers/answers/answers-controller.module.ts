@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common'
 
-import { AnswerQuestionUseCase } from '~/domain/forum/application/use-cases/answers/answer-question'
-import { DeleteAnswerUseCase } from '~/domain/forum/application/use-cases/answers/delete-answer'
-import { EditAnswerUseCase } from '~/domain/forum/application/use-cases/answers/edit-answer'
+import {
+  AnswerQuestionUseCase,
+  DeleteAnswerUseCase,
+  EditAnswerUseCase,
+} from '~/domain/forum/application/use-cases/answers'
 import { DatabaseModule } from '~/infra/database/database.module'
 
 import { AnswerQuestionController } from './answer-question.controller'

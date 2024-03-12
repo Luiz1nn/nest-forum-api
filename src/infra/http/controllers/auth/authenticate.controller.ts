@@ -8,8 +8,8 @@ import {
 } from '@nestjs/common'
 import { z } from 'zod'
 
-import { AuthenticateStudentUseCase } from '~/domain/forum/application/use-cases/auth/authenticate-student'
-import { WrongCredentialsError } from '~/domain/forum/application/use-cases/errors/wrong-credentials-error'
+import { AuthenticateStudentUseCase } from '~/domain/forum/application/use-cases/auth'
+import { WrongCredentialsError } from '~/domain/forum/application/use-cases/errors'
 import { Public } from '~/infra/auth/public'
 import { ZodValidationPipe } from '~/infra/http/pipes/zod-validation-pipe'
 

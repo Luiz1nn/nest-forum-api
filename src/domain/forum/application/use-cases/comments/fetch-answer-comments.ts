@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 
 import { Either, right } from '~/core/either'
-import { AnswerCommentsRepository } from '~/domain/forum/application/repositories/answer-comments-repository'
+import { AnswerCommentsRepository } from '~/domain/forum/application/repositories'
 import { CommentWithAuthor } from '~/domain/forum/enterprise/entities/value-objects/comment-with-author'
 
 type FetchAnswerCommentsUseCaseRequest = {

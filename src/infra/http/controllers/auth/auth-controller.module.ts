@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common'
 
-import { AuthenticateStudentUseCase } from '~/domain/forum/application/use-cases/auth/authenticate-student'
-import { RegisterStudentUseCase } from '~/domain/forum/application/use-cases/auth/register-student'
+import {
+  AuthenticateStudentUseCase,
+  RegisterStudentUseCase,
+} from '~/domain/forum/application/use-cases/auth'
 import { CryptographyModule } from '~/infra/cryptography/cryptography.module'
 import { DatabaseModule } from '~/infra/database/database.module'
 

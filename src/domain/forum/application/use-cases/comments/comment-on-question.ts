@@ -2,10 +2,12 @@ import { Injectable } from '@nestjs/common'
 
 import { Either, left, right } from '~/core/either'
 import { UniqueEntityID } from '~/core/entities/unique-entity-id'
-import { ResourceNotFoundError } from '~/core/errors/errors/resource-not-found-error'
-import { QuestionCommentsRepository } from '~/domain/forum/application/repositories/question-comments-repository'
-import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
-import { QuestionComment } from '~/domain/forum/enterprise/entities/comments/question-comment'
+import { ResourceNotFoundError } from '~/core/errors'
+import {
+  QuestionCommentsRepository,
+  QuestionsRepository,
+} from '~/domain/forum/application/repositories'
+import { QuestionComment } from '~/domain/forum/enterprise/entities/comments'
 
 type CommentOnQuestionUseCaseRequest = {
   authorId: string

@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common'
 
 import { Either, left, right } from '~/core/either'
-import { Encrypter } from '~/domain/forum/application/cryptography/encrypter'
-import { HashComparer } from '~/domain/forum/application/cryptography/hash-comparer'
+import {
+  Encrypter,
+  HashComparer,
+} from '~/domain/forum/application/cryptography'
 import { StudentsRepository } from '~/domain/forum/application/repositories/students-repository'
-
-import { WrongCredentialsError } from '../errors/wrong-credentials-error'
+import { WrongCredentialsError } from '~/domain/forum/application/use-cases/errors'
 
 type AuthenticateStudentUseCaseRequest = {
   email: string

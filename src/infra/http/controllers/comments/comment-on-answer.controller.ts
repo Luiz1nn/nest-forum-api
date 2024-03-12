@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common'
 import { z } from 'zod'
 
-import { CommentOnAnswerUseCase } from '~/domain/forum/application/use-cases/comments/comment-on-answer'
+import { CommentOnAnswerUseCase } from '~/domain/forum/application/use-cases/comments'
 import { CurrentUser } from '~/infra/auth/current-user-decorator'
 import { UserPayload } from '~/infra/auth/jwt.strategy'
 import { ZodValidationPipe } from '~/infra/http/pipes/zod-validation-pipe'

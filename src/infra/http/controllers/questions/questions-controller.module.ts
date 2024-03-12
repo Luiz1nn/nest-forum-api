@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common'
 
-import { ChooseQuestionsBestAnswerUseCase } from '~/domain/forum/application/use-cases/questions/choose-question-best-answer'
-import { CreateQuestionUseCase } from '~/domain/forum/application/use-cases/questions/create-question'
-import { DeleteQuestionUseCase } from '~/domain/forum/application/use-cases/questions/delete-question'
-import { EditQuestionUseCase } from '~/domain/forum/application/use-cases/questions/edit-question'
-import { FetchRecentQuestionsUseCase } from '~/domain/forum/application/use-cases/questions/fetch-recent-questions'
-import { GetQuestionBySlugUseCase } from '~/domain/forum/application/use-cases/questions/get-question-by-slug'
+import {
+  ChooseQuestionsBestAnswerUseCase,
+  CreateQuestionUseCase,
+  DeleteQuestionUseCase,
+  EditQuestionUseCase,
+  FetchRecentQuestionsUseCase,
+  GetQuestionBySlugUseCase,
+} from '~/domain/forum/application/use-cases/questions'
 import { DatabaseModule } from '~/infra/database/database.module'
 
 import { ChooseQuestionBestAnswerController } from './choose-question-best-answer.controller'

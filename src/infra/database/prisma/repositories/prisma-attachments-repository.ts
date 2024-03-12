@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 
 import { AttachmentsRepository } from '~/domain/forum/application/repositories/attachments-repository'
-import { Attachment } from '~/domain/forum/enterprise/entities/attachment'
+import { Attachment } from '~/domain/forum/enterprise/entities/attachments/attachment'
 
 import { PrismaAttachmentMapper } from '../mappers/attachments/prisma-attachment-mapper'
 import { PrismaService } from '../prisma.service'

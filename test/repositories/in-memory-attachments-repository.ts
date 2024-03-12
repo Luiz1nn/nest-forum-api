@@ -1,5 +1,5 @@
 import { AttachmentsRepository } from '~/domain/forum/application/repositories/attachments-repository'
-import { Attachment } from '~/domain/forum/enterprise/entities/attachment'
+import { Attachment } from '~/domain/forum/enterprise/entities/attachments/attachment'
 
 export class InMemoryAttachmentsRepository implements AttachmentsRepository {
   public items: Attachment[] = []
