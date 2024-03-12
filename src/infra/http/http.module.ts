@@ -1,8 +1,5 @@
 import { Module } from '@nestjs/common'
 
-import { AnswerQuestionUseCase } from '~/domain/forum/application/use-cases/answers/answer-question'
-import { DeleteAnswerUseCase } from '~/domain/forum/application/use-cases/answers/delete-answer'
-import { EditAnswerUseCase } from '~/domain/forum/application/use-cases/answers/edit-answer'
 import { UploadAndCreateAttachmentUseCase } from '~/domain/forum/application/use-cases/attachments/upload-and-create-attachment'
 import { AuthenticateStudentUseCase } from '~/domain/forum/application/use-cases/auth/authenticate-student'
 import { RegisterStudentUseCase } from '~/domain/forum/application/use-cases/auth/register-student'
@@ -20,9 +17,6 @@ import { FetchRecentQuestionsUseCase } from '~/domain/forum/application/use-case
 import { GetQuestionBySlugUseCase } from '~/domain/forum/application/use-cases/questions/get-question-by-slug'
 import { CryptographyModule } from '~/infra/cryptography/cryptography.module'
 import { DatabaseModule } from '~/infra/database/database.module'
-import { AnswerQuestionController } from '~/infra/http/controllers/answers/answer-question.controller'
-import { DeleteAnswerController } from '~/infra/http/controllers/answers/delete-answer.controller'
-import { EditAnswerController } from '~/infra/http/controllers/answers/edit-answer.controller'
 import { AuthenticateController } from '~/infra/http/controllers/auth/authenticate.controller'
 import { CreateAccountController } from '~/infra/http/controllers/auth/create-account.controller'
 import { CommentOnAnswerController } from '~/infra/http/controllers/comments/comment-on-answer.controller'
@@ -40,8 +34,15 @@ import { GetQuestionBySlugController } from '~/infra/http/controllers/questions/
 import { UploadAttachmentController } from '~/infra/http/controllers/upload-attachment.controller'
 import { StorageModule } from '~/infra/storage/storage.module'
 
+import { AnswersControllerModule } from './controllers/answers/answers-controller.module'
+
 @Module({
-  imports: [DatabaseModule, CryptographyModule, StorageModule],
+  imports: [
+    DatabaseModule,
+    CryptographyModule,
+    StorageModule,
+    AnswersControllerModule,
+  ],
   controllers: [
     CreateAccountController,
     AuthenticateController,
@@ -49,10 +50,7 @@ import { StorageModule } from '~/infra/storage/storage.module'
     FetchRecentQuestionsController,
     EditQuestionController,
     DeleteQuestionController,
-    AnswerQuestionController,
     ChooseQuestionBestAnswerController,
-    EditAnswerController,
-    DeleteAnswerController,
     CommentOnQuestionController,
     FetchQuestionCommentsController,
     DeleteQuestionCommentController,
@@ -69,10 +67,7 @@ import { StorageModule } from '~/infra/storage/storage.module'
     FetchRecentQuestionsUseCase,
     EditQuestionUseCase,
     DeleteQuestionUseCase,
-    AnswerQuestionUseCase,
     ChooseQuestionsBestAnswerUseCase,
-    EditAnswerUseCase,
-    DeleteAnswerUseCase,
     CommentOnQuestionUseCase,
     FetchQuestionCommentsUseCase,
     DeleteQuestionCommentUseCase,
