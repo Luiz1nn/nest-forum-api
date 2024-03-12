@@ -7,9 +7,9 @@ import { ResourceNotFoundError } from '~/core/errors/errors/resource-not-found-e
 import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
 import { Question } from '~/domain/forum/enterprise/entities/question'
 
-import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
-import { QuestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
-import { QuestionAttachmentsRepository } from '../repositories/question-attachments-repository'
+import { QuestionAttachment } from '../../../enterprise/entities/question-attachment'
+import { QuestionAttachmentList } from '../../../enterprise/entities/question-attachment-list'
+import { QuestionAttachmentsRepository } from '../../repositories/question-attachments-repository'
 
 type EditQuestionUseCaseRequest = {
   authorId: string

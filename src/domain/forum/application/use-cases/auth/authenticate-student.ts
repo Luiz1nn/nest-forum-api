@@ -5,7 +5,7 @@ import { Encrypter } from '~/domain/forum/application/cryptography/encrypter'
 import { HashComparer } from '~/domain/forum/application/cryptography/hash-comparer'
 import { StudentsRepository } from '~/domain/forum/application/repositories/students-repository'
 
-import { WrongCredentialsError } from './errors/wrong-credentials-error'
+import { WrongCredentialsError } from '../errors/wrong-credentials-error'
 
 type AuthenticateStudentUseCaseRequest = {
   email: string

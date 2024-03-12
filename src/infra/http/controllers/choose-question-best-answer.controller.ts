@@ -6,7 +6,7 @@ import {
   Patch,
 } from '@nestjs/common'
 
-import { ChooseQuestionsBestAnswerUseCase } from '~/domain/forum/application/use-cases/choose-question-best-answer'
+import { ChooseQuestionsBestAnswerUseCase } from '~/domain/forum/application/use-cases/questions/choose-question-best-answer'
 import { CurrentUser } from '~/infra/auth/current-user-decorator'
 import { UserPayload } from '~/infra/auth/jwt.strategy'
 

@@ -5,7 +5,7 @@ import { HashGenerator } from '~/domain/forum/application/cryptography/hash-gene
 import { StudentsRepository } from '~/domain/forum/application/repositories/students-repository'
 import { Student } from '~/domain/forum/enterprise/entities/student'
 
-import { StudentAlreadyExistsError } from './errors/student-already-exists-error'
+import { StudentAlreadyExistsError } from '../errors/student-already-exists-error'
 
 type RegisterStudentUseCaseRequest = {
   name: string

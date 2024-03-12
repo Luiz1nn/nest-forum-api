@@ -5,7 +5,7 @@ import { AttachmentsRepository } from '~/domain/forum/application/repositories/a
 import { Uploader } from '~/domain/forum/application/storage/uploader'
 import { Attachment } from '~/domain/forum/enterprise/entities/attachment'
 
-import { InvalidAttachmentTypeError } from './errors/invalid-attachment-type-error'
+import { InvalidAttachmentTypeError } from '../errors/invalid-attachment-type-error'
 
 type UploadAndCreateAttachmentRequest = {
   fileName: string

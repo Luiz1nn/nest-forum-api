@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common'
 import { z } from 'zod'
 
-import { FetchAnswerCommentsUseCase } from '~/domain/forum/application/use-cases/fetch-answer-comments'
+import { FetchAnswerCommentsUseCase } from '~/domain/forum/application/use-cases/comments/fetch-answer-comments'
 import { ZodValidationPipe } from '~/infra/http/pipes/zod-validation-pipe'
 import { CommentWithAuthorPresenter } from '~/infra/http/presenters/comment-with-author-presenter'
 
