@@ -5,8 +5,8 @@ import { QuestionCommentsRepository } from '~/domain/forum/application/repositor
 import { QuestionComment } from '~/domain/forum/enterprise/entities/comments/question-comment'
 import { CommentWithAuthor } from '~/domain/forum/enterprise/entities/value-objects/comment-with-author'
 
+import { PrismaQuestionCommentMapper } from '../mappers/comments/prisma-question-comment-mapper'
 import { PrismaCommentWithAuthorMapper } from '../mappers/prisma-comment-with-author-mapper'
-import { PrismaQuestionCommentMapper } from '../mappers/prisma-question-comment-mapper'
 import { PrismaService } from '../prisma.service'
 
 @Injectable()

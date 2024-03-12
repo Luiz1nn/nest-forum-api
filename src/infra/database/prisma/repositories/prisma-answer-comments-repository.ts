@@ -5,7 +5,7 @@ import { AnswerCommentsRepository } from '~/domain/forum/application/repositorie
 import { AnswerComment } from '~/domain/forum/enterprise/entities/comments/answer-comment'
 import { CommentWithAuthor } from '~/domain/forum/enterprise/entities/value-objects/comment-with-author'
 
-import { PrismaAnswerCommentMapper } from '../mappers/prisma-answer-comment-mapper'
+import { PrismaAnswerCommentMapper } from '../mappers/comments/prisma-answer-comment-mapper'
 import { PrismaCommentWithAuthorMapper } from '../mappers/prisma-comment-with-author-mapper'
 import { PrismaService } from '../prisma.service'
 

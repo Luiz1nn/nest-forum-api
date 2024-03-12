@@ -8,8 +8,8 @@ import { Question } from '~/domain/forum/enterprise/entities/question'
 import { QuestionDetails } from '~/domain/forum/enterprise/entities/value-objects/question-details'
 import { CacheRepository } from '~/infra/cache/cache-repository'
 
-import { PrismaQuestionDetailsMapper } from '../mappers/prisma-question-details-mapper'
-import { PrismaQuestionMapper } from '../mappers/prisma-question-mapper'
+import { PrismaQuestionDetailsMapper } from '../mappers/questions/prisma-question-details-mapper'
+import { PrismaQuestionMapper } from '../mappers/questions/prisma-question-mapper'
 import { PrismaService } from '../prisma.service'
 
 @Injectable()
