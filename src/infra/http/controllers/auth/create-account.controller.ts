@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common'
 import { z } from 'zod'
 
-import { StudentAlreadyExistsError } from '~/domain/forum/application/use-cases/errors/student-already-exists-error'
 import { RegisterStudentUseCase } from '~/domain/forum/application/use-cases/auth/register-student'
+import { StudentAlreadyExistsError } from '~/domain/forum/application/use-cases/errors/student-already-exists-error'
 import { Public } from '~/infra/auth/public'
 import { ZodValidationPipe } from '~/infra/http/pipes/zod-validation-pipe'
 
