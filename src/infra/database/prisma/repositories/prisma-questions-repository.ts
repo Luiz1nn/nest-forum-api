@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common'
 
+import { DomainEvents } from '~/core/events/domain-events'
 import { PaginationParams } from '~/core/repositories/pagination-params'
+import { QuestionAttachmentsRepository } from '~/domain/forum/application/repositories/question-attachments-repository'
 import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
 import { Question } from '~/domain/forum/enterprise/entities/question'
 import { QuestionDetails } from '~/domain/forum/enterprise/entities/value-objects/question-details'
@@ -15,6 +17,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
   constructor(
     private prisma: PrismaService,
     private cache: CacheRepository,
+    private questionAttachmentsRepository: QuestionAttachmentsRepository,
   ) {}
 
   async findById(id: string): Promise<Question | null> {
@@ -77,6 +80,12 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
     await this.prisma.question.create({
       data,
     })
+
+    await this.questionAttachmentsRepository.createMany(
+      question.attachments.getItems(),
+    )
+
+    DomainEvents.dispatchEventsForAggregate(question.id)
   }
 
   async save(question: Question): Promise<void> {
