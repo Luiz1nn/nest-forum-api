@@ -7,6 +7,10 @@ type AnswerAttachmentProps = {
 }
 
 export class AnswerAttachment extends Entity<AnswerAttachmentProps> {
+  get answerId() {
+    return this.props.answerId
+  }
+
   get attachmentId() {
     return this.props.attachmentId
   }
