@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common'
 
 import { UploadAndCreateAttachmentUseCase } from '~/domain/forum/application/use-cases/attachments/upload-and-create-attachment'
-import { AuthenticateStudentUseCase } from '~/domain/forum/application/use-cases/auth/authenticate-student'
-import { RegisterStudentUseCase } from '~/domain/forum/application/use-cases/auth/register-student'
 import { CommentOnAnswerUseCase } from '~/domain/forum/application/use-cases/comments/comment-on-answer'
 import { CommentOnQuestionUseCase } from '~/domain/forum/application/use-cases/comments/comment-on-question'
 import { DeleteAnswerCommentUseCase } from '~/domain/forum/application/use-cases/comments/delete-answer-comment'
@@ -15,10 +13,7 @@ import { DeleteQuestionUseCase } from '~/domain/forum/application/use-cases/ques
 import { EditQuestionUseCase } from '~/domain/forum/application/use-cases/questions/edit-question'
 import { FetchRecentQuestionsUseCase } from '~/domain/forum/application/use-cases/questions/fetch-recent-questions'
 import { GetQuestionBySlugUseCase } from '~/domain/forum/application/use-cases/questions/get-question-by-slug'
-import { CryptographyModule } from '~/infra/cryptography/cryptography.module'
 import { DatabaseModule } from '~/infra/database/database.module'
-import { AuthenticateController } from '~/infra/http/controllers/auth/authenticate.controller'
-import { CreateAccountController } from '~/infra/http/controllers/auth/create-account.controller'
 import { CommentOnAnswerController } from '~/infra/http/controllers/comments/comment-on-answer.controller'
 import { CommentOnQuestionController } from '~/infra/http/controllers/comments/comment-on-question.controller'
 import { DeleteAnswerCommentController } from '~/infra/http/controllers/comments/delete-answer-comment.controller'
@@ -35,17 +30,16 @@ import { UploadAttachmentController } from '~/infra/http/controllers/upload-atta
 import { StorageModule } from '~/infra/storage/storage.module'
 
 import { AnswersControllerModule } from './controllers/answers/answers-controller.module'
+import { AuthControllerModule } from './controllers/auth/auth-controller.module'
 
 @Module({
   imports: [
     DatabaseModule,
-    CryptographyModule,
     StorageModule,
+    AuthControllerModule,
     AnswersControllerModule,
   ],
   controllers: [
-    CreateAccountController,
-    AuthenticateController,
     CreateQuestionController,
     FetchRecentQuestionsController,
     EditQuestionController,
@@ -61,8 +55,6 @@ import { AnswersControllerModule } from './controllers/answers/answers-controlle
     UploadAttachmentController,
   ],
   providers: [
-    RegisterStudentUseCase,
-    AuthenticateStudentUseCase,
     CreateQuestionUseCase,
     FetchRecentQuestionsUseCase,
     EditQuestionUseCase,
