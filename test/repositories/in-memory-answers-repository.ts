@@ -50,5 +50,6 @@ export class InMemoryAnswersRepository implements AnswersRepository {
     const itemIndex = this.items.findIndex((item) => item.id === answer.id)
 
     this.items.splice(itemIndex, 1)
+    this.answerAttachmentsRepository.deleteManyByAnswerId(answer.id.toString())
   }
 }
