@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 
 import { Either, left, right } from '~/core/either'
 import { HashGenerator } from '~/domain/forum/application/cryptography'
-import { StudentsRepository } from '~/domain/forum/application/repositories/students-repository'
+import { StudentsRepository } from '~/domain/forum/application/repositories'
 import { StudentAlreadyExistsError } from '~/domain/forum/application/use-cases/errors'
 import { Student } from '~/domain/forum/enterprise/entities/student'
 
