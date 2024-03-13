@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common'
 
 import { DomainEvents } from '~/core/events/domain-events'
-import { AnswerAttachmentsRepository } from '~/domain/forum/application/repositories/answer-attachments-repository'
-import { AnswersRepository } from '~/domain/forum/application/repositories/answers-repository'
+import {
+  AnswerAttachmentsRepository,
+  AnswersRepository,
+} from '~/domain/forum/application/repositories'
 import { Answer } from '~/domain/forum/enterprise/entities/answer'
 
 import { PrismaAnswerMapper } from '../mappers/prisma-answer-mapper'
@@ -51,7 +53,15 @@ export class PrismaAnswersRepository implements AnswersRepository {
         },
         data,
       }),
+      this.answerAttachmentsRepository.createMany(
+        answer.attachments.getNewItems(),
+      ),
+      this.answerAttachmentsRepository.deleteMany(
+        answer.attachments.getRemovedItems(),
+      ),
     ])
+
+    DomainEvents.dispatchEventsForAggregate(answer.id)
   }
 
   async delete(answer: Answer): Promise<void> {
