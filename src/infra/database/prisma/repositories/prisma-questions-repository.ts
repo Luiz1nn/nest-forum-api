@@ -2,8 +2,10 @@ import { Injectable } from '@nestjs/common'
 
 import { DomainEvents } from '~/core/events/domain-events'
 import { PaginationParams } from '~/core/repositories/pagination-params'
-import { QuestionAttachmentsRepository } from '~/domain/forum/application/repositories/question-attachments-repository'
-import { QuestionsRepository } from '~/domain/forum/application/repositories/questions-repository'
+import {
+  QuestionAttachmentsRepository,
+  QuestionsRepository,
+} from '~/domain/forum/application/repositories'
 import { Question } from '~/domain/forum/enterprise/entities/question'
 import { QuestionDetails } from '~/domain/forum/enterprise/entities/value-objects/question-details'
 import { CacheRepository } from '~/infra/cache/cache-repository'
@@ -47,6 +49,7 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
       },
       include: {
         author: true,
+        attachments: true,
       },
     })
 

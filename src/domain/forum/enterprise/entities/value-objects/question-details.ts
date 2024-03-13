@@ -1,5 +1,6 @@
 import { UniqueEntityID } from '~/core/entities/unique-entity-id'
 import { ValueObject } from '~/core/entities/value-object'
+import { Attachment } from '~/domain/forum/enterprise/entities/attachments'
 
 import { Slug } from './slug'
 
@@ -10,6 +11,7 @@ type QuestionDetailsProps = {
   title: string
   content: string
   slug: Slug
+  attachments: Attachment[]
   bestAnswerId?: UniqueEntityID | null
   createdAt: Date
   updatedAt?: Date | null
@@ -38,6 +40,10 @@ export class QuestionDetails extends ValueObject<QuestionDetailsProps> {
 
   get slug() {
     return this.props.slug
+  }
+
+  get attachments() {
+    return this.props.attachments
   }
 
   get bestAnswerId() {
