@@ -1,3 +1,4 @@
+export * from './answer-attachments-repository'
 export * from './answer-comments-repository'
 export * from './answers-repository'
 export * from './question-attachments-repository'

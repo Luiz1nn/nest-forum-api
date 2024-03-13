@@ -1,6 +1,8 @@
 import { DomainEvents } from '~/core/events/domain-events'
-import { AnswerAttachmentsRepository } from '~/domain/forum/application/repositories/answer-attachments-repository'
-import { AnswersRepository } from '~/domain/forum/application/repositories/answers-repository'
+import {
+  AnswerAttachmentsRepository,
+  AnswersRepository,
+} from '~/domain/forum/application/repositories'
 import { Answer } from '~/domain/forum/enterprise/entities/answer'
 
 export class InMemoryAnswersRepository implements AnswersRepository {
@@ -32,6 +34,16 @@ export class InMemoryAnswersRepository implements AnswersRepository {
     const itemIndex = this.items.findIndex((item) => item.id === answer.id)
 
     this.items[itemIndex] = answer
+
+    await this.answerAttachmentsRepository.createMany(
+      answer.attachments.getNewItems(),
+    )
+
+    await this.answerAttachmentsRepository.deleteMany(
+      answer.attachments.getRemovedItems(),
+    )
+
+    DomainEvents.dispatchEventsForAggregate(answer.id)
   }
 
   async delete(answer: Answer): Promise<void> {

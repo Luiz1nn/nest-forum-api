@@ -1,5 +1,5 @@
 import { PaginationParams } from '~/core/repositories/pagination-params'
-import { QuestionComment } from '~/domain/forum/enterprise/entities/comments/question-comment'
+import { QuestionComment } from '~/domain/forum/enterprise/entities/comments'
 import { CommentWithAuthor } from '~/domain/forum/enterprise/entities/value-objects/comment-with-author'
 
 export abstract class QuestionCommentsRepository {

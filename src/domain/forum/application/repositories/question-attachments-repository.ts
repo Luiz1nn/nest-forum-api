@@ -1,4 +1,4 @@
-import { QuestionAttachment } from '~/domain/forum/enterprise/entities/attachments/question-attachment'
+import { QuestionAttachment } from '~/domain/forum/enterprise/entities/attachments'
 
 export abstract class QuestionAttachmentsRepository {
   abstract findManyByQuestionId(
