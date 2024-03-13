@@ -4,11 +4,10 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
+    include: ['**/*.e2e-spec.ts'],
     globals: true,
     root: './',
-    coverage: {
-      provider: 'v8',
-    },
+    setupFiles: ['./test/setup-e2e.ts'],
   },
   plugins: [
     tsConfigPaths(),
